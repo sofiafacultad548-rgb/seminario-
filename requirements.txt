@@ -3,3 +3,4 @@ plotly
 pandas
 xlsxwriter
 requests
+streamlit-local-storage
