@@ -1623,7 +1623,25 @@ with col_form:
                     "Plazo (Meses)": int(meses),
                 })
                 st.rerun()
+# ── Borrar objetivos ──────────────────────────────
+if st.session_state.objetivos:
+    st.subheader("Eliminar metas")
 
+    indices_a_borrar = []
+
+    for i, obj in enumerate(st.session_state.objetivos):
+        if st.checkbox(
+            f"{obj['Meta']} ({obj['Categoría']})",
+            key=f"borrar_meta_{i}"
+        ):
+            indices_a_borrar.append(i)
+
+    if st.button("🗑️ Eliminar metas seleccionadas"):
+        st.session_state.objetivos = [
+            obj for i, obj in enumerate(st.session_state.objetivos)
+            if i not in indices_a_borrar
+        ]
+        st.rerun()
 objetivos_enriquecidos = []
 
 with col_lista:
