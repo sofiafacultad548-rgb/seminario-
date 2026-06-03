@@ -1233,18 +1233,19 @@ with st.expander("📋 Completar / actualizar mi perfil de inversor", expanded=n
 
         st.divider()
         st.subheader("④ Conocimiento financiero  ·  10% del score")
-        st.caption("Marcá los instrumentos que conocés y sabés cómo funcionan (no solo que existen).")
+        st.caption("Marcá los instrumentos que conocés.")
         k1, k2, k3 = st.columns(3)
-        con_acciones   = k1.checkbox("Acciones (compra/venta, dividendos)", key="con_acc")
-        con_bonos      = k1.checkbox("Bonos (TIR, duration, calificación)", key="con_bon")
-        con_etf        = k2.checkbox("ETFs (estructura, tracking error)", key="con_etf")
-        con_fci        = k2.checkbox("Fondos Comunes de Inversión", key="con_fci")
-        con_divs       = k3.checkbox("Diversificación y correlación de activos", key="con_div")
-        con_inflacion  = k3.checkbox("Efecto de la inflación en rendimientos reales", key="con_inf")
-
-        _conocimientos = [con_acciones, con_bonos, con_etf, con_fci, con_divs, con_inflacion]
+        con_acciones   = k1.checkbox("Acciones", key="con_acc")
+        con_bonos      = k1.checkbox("Bonos", key="con_bon")
+        con_fci        = k1.checkbox("FCI (Fondos Comunes de Inversión)", key="con_fci")
+        con_on         = k2.checkbox("Obligaciones Negociables", key="con_on")
+        con_etf        = k2.checkbox("ETFs", key="con_etf")
+        con_cedears    = k2.checkbox("CEDEARs", key="con_ced")
+        con_cauciones  = k3.checkbox("Cauciones", key="con_cau")
+        con_opciones   = k3.checkbox("Opciones / Derivados financieros", key="con_opc")
+ 
+        _conocimientos = [con_acciones, con_bonos, con_fci, con_on, con_etf, con_cedears, con_cauciones, con_opciones]
         score_conocimiento = (sum(_conocimientos) / len(_conocimientos)) * 100
-
         st.divider()
         st.subheader("⑤ Objetivo financiero principal  ·  10% del score")
         r_objetivo = st.selectbox(
