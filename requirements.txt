@@ -4,3 +4,5 @@ pandas
 xlsxwriter
 requests
 streamlit-local-storage
+streamlit-local-storage
+python-dateutil
